@@ -1,6 +1,12 @@
 import React from 'react'
 import img1 from '../asset/img/dashboard.jpg'
+import { Link, useNavigate } from 'react-router-dom'
 function Homepage() {
+  const navigate = useNavigate();
+  const doLogin = ()=> {
+    console.log("Cliked");
+    navigate("/dashboard");
+  };
   return (
     <div className='container'>
         <div className='leftcontainer'>
@@ -11,20 +17,9 @@ function Homepage() {
         </div>
         <div className='rightcontainer'>
             <div className='formcard'>
-          <h2 style={{alignSelf:'container'}}>Register</h2>
-          
-          <div>
-            <label>
-              Name
-            </label>
-            <input 
-            required
-            placeholder='Enter Your Name'
-            type='text'
-            />
-          </div>
-          
-          <div>
+              <div>
+                <h2 style={{alignSelf:'center'}}>Login</h2>
+                <div>
             <label>
               Email
             </label>
@@ -45,21 +40,13 @@ function Homepage() {
             type='password'
             />
           </div>
-          
           <div>
-            <label>
-              Confirm Password
-            </label>
-            <input 
-            required
-            placeholder='Confirm Your Password'
-            type='password'
-            />
+            <button onClick={doLogin}>Login</button>
           </div>
-          
           <div>
-             <button>Submit</button>
+            <span style={{alignSelf:'center'}}>Not A User?<Link to="/register">Register</Link></span>
           </div>
+              </div>
             </div>
             
         </div>
